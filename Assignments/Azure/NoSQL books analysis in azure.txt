@@ -1,0 +1,71 @@
+BOOKS JSON DATA -COSMOS DB
+
+Q1) Read  all the documents from the books collection where 'tags' array contains 'database' element?
+
+>>  SELECT * from c where array_contains(c.tags,"programming")
+
+Q2)List all the documents from books collection where author's profile contains exacty 2 courses?
+
+>> SELECT * FROM c where c.author.profile.courses=2
+
+Q3) Select all documents from books collection where tags array is exactly equal to ["language","freeware","programming"]
+
+>>  SELECT * from c where c.tags[0]="language" and c.tags[1]="freeware" and c.tags[2]="programming"
+
+Q4) List out all documents where 'tags' array contains 'programming' element?
+
+>> SELECT * FROM c where array_contains(c.tags,"programming")
+
+Q5) List out all documents where 'languages' array contains 'telugu' element?
+
+>> SELECT * FROM c where array_contains(c.languages,"telugu")
+
+Q6) List out all documents present in books collection?
+
+>> SELECT * FROM c 
+
+Q7) Find total number of documents present in books collection?
+
+>>  SELECT count(c) FROM c 
+
+Q8) List out first document present in books collection?
+
+>>  SELECT TOP 1  * FROM c 
+
+Q9)Select all documents where either no_of_reviews>3 or tags array contains programming element?
+
+>>  SELECT * from c where array_contains(c.tags,"programming") or c.no_of_revies>3
+
+Q10) Select all documents where either no_of_reviews is less than 3 or downloadable is true or author profile contains atleast 2 books?
+
+>>  SELECT * from c where c.no_of_reviews<3 or c.downloadable='true' or c.author.profile.books>=2 
+
+Q11) Select all documents from books collection where the no_of_reviews is greater than 3?
+
+>>  SELECT * from c where c.no_of_reviews>3
+
+Q12) List out all documents where 'tags' array contains only on element 'programming'?
+
+>>  SELECT * from c where c.tags[0]="programming"
+
+
+Q13) List out all documents where 'tags' array is  [“language”,”freeware”,”programming”]
+
+>>  SELECT * from c where c.tags[0]="language" and c.tags[1]="freeware" and c.tags[2]="programming"
+
+Q14)To select all documents from books collection where no_of_reviews is not equal to 3.
+
+>>  SELECT * from c where c.no_of_reviews!=3
+
+Q15) Select all documents from books collection where the no_of_reviews is less than 3.
+
+>>  SELECT * from c where c.no_of_reviews<3
+
+Q16)Select all documents where the no_of_reviews is greater than or equals to 3 and downloadable is true?
+
+>>  SELECT * from c where c.no_of_reviews>=3 or c.downloadable ="true"
+
+Q17) Select all documents from books collection where the tags array contains either database or programming
+
+>>  SELECT * from c where array_contains(c.tags,"programming") or array_contains(c.tags,"database")
+
